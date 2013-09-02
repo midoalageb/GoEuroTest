@@ -74,7 +74,10 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 		
 		//Get Location
 		location=getLocation();
+		
+		//If location unavailable, request user 
 		if(location==null) Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_gps), Toast.LENGTH_LONG).show();
+		
 		//Setting TextWatcher
 		ACTV_start.addTextChangedListener(TW1);
 		ACTV_end.addTextChangedListener(TW2);
@@ -94,6 +97,7 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 			}
 		});
 		
+		//Check All mandatory fields are filled
 		Btn_search.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -212,6 +216,7 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 		
 		private String[] JSON_2_String_Array(
 				JSONArray jsonArray) {
+			//Gets name & Location sorted by distance
 			List<Map<String,String>> list=new ArrayList<Map<String,String>>();
 			
 			for(int i=0;i<jsonArray.length();i++){
@@ -235,6 +240,7 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 				list.add(map);
 				map=null;
 			}
+			//Sort by distance
 			Collections.sort(list, new MapComparator("distance"));
 			String[] result_array=new String[list.size()];
 			for(int i=0;i<list.size();i++){
@@ -244,6 +250,7 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 		}
 
 		private String calc_distance(double longit,double latit) {
+			//Returns the distance between user's location and provided one
 			Location locat=new Location("");
 			locat.setLatitude(latit);
 			locat.setLongitude(longit);
@@ -273,6 +280,7 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 	
 	class MapComparator implements Comparator<Map<String, String>>
 	{
+		//Sorts ArrayList<Map<String,String>> ascending based on distance
 	    private final String key;
 
 	    public MapComparator(String key)
@@ -298,7 +306,7 @@ final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/posit
 	}
 
 	DatePickerDialog.OnDateSetListener date_chng_listener=new DatePickerDialog.OnDateSetListener() {
-		
+		//Set the Date based on user set date 
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth) {
