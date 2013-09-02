@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GoEuro test</string>
+    <string name="action_settings">Settings</string>
+    <string name="header">GoEuro</string>
+    <string name="tv_from_hint">Start Location</string>
+    <string name="tv_to_hint">End Location</string>
+    <string name="pick_date">Please select a date</string>
+    <string name="search">Search</string>
+    <string name="loading">Loading</string>
+    <string name="start_missing">Start location is empty</string>
+    <string name="end_missing">End location is empty</string>
+    <string name="date_missing">Date is missing</string>
+    <string name="search_result">Search is not yet implemented</string>
+    <string name="enable_gps">Cannot find your location, please enable GPS/WiFi</string>
+
+</resources>
