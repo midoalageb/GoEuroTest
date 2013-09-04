@@ -53,7 +53,7 @@ Location location;
 Criteria criteria;
 final static int CRITER=Criteria.NO_REQUIREMENT;
 final static String TAG="GoEuro_Test_MainActivity";
-final static String API_URL="http://pre.dev.goeuro.de:12345/api/v1/suggest/position/en/name/";
+final static String API_URL="URL to API that provides matching destinations starting with specified charachters";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
